@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ item.title }}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'furniture/styles.css' %}">
+</head>
+<body>
+<center>
+    <h1>{{ item.title }}</h1>
+    {% if item.image %}
+        <img src="{{ item.image.url }}" alt="{{ item.title }}" style="max-width: 300px;">
+    {% else %}
+        <p>No image available</p>
+    {% endif %}
+    <p>Description: {{ item.description }}</p>
+    <p>Price: ${{ item.price }}</p>
+    <p>Rental Price: ${{ item.rental_price }} /per Month</p>
+    <p>Available for rent: {{ item.available_for_rent }}</p>
+    <p>Available for sale: {{ item.available_for_sale }}</p>
+    <p>Available Quantity: {{ item.quantity }}</p>
+
+    {% if item.quantity > 0 %}
+        <a href="{% url 'buy_item' item.id %}" class="unstyled-btn">Buy Now</a>
+        {% if item.available_for_rent %}
+            <a href="{% url 'rent_item' item.id %}" class="unstyled-btn">Rent Now</a>
+        {% endif %}
+    {% else %}
+        <p class="text-danger">Item not available for sale or rent</p>
+    {% endif %}
+    <p></p>
+    <a href="{% url 'item_list' %}">Back to list</a>
+</center>
+</body>
+</html>

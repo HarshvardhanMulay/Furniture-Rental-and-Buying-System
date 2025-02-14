@@ -1,0 +1,99 @@
+/* Background Image for the body */
+body.bg-image {
+    background-image: url('/media/bg_img_01.jpeg'); /* Adjust path to your image */
+    background-size: contain; /* Ensures the image fits fully within the container */
+    background-position: center;
+    background-repeat: no-repeat; /* Prevents image from repeating */
+    height: 100vh; /* Ensure the body covers the full viewport height */
+}
+
+/* Dark Mode Styling */
+body.dark-mode {
+    background-color: #333;
+    color: white;
+}
+
+/* Navbar dark mode */
+body.dark-mode .navbar {
+    background-color: #333;
+    color: white;
+}
+
+/* Dark Mode button styling */
+body.dark-mode .btn-outline-secondary {
+    background-color: #555;
+    color: white;
+}
+
+body.dark-mode .btn-danger {
+    background-color: #e60000;
+    color: white;
+}
+
+/* Card Styling */
+.card {
+    background-color: rgba(255, 255, 255, 0.8); /* Slight transparency */
+}
+
+body.dark-mode .card {
+    background-color: rgba(0, 0, 0, 0.8); /* Dark card background in dark mode */
+}
+
+/* Buttons Styling */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+/* Card Hover Effect */
+.card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #333;
+    color: white;
+}
+
+/* Background Image Styling */
+/*.bg-image {*/
+    /*background-image: url('/media/bg_img_01.jpeg'); /* Update with your image path */
+/*    background-size: cover;*/
+/*    background-position: center;*/
+/*    min-height: 100vh;*/
+/*}*/
+
+/* Card Image Size */
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Custom Button Styling */
+
+.navbar .ms-auto {
+    margin-left: auto !important;
+}
+.logout-btn {
+    background-color: #f50511; /* Custom red shade */
+    border: none; /* Remove border if needed */
+    color: white;
+}
+
+.logout-btn:hover {
+    background-color: #e60000; /* Darker red on hover */
+    color: white;
+}
+.unstyled-btn {
+    background: none;
+    border: none;
+    color: inherit; /* Inherits the text color */
+    padding: 0;
+    font: inherit; /* Uses the same font as surrounding text */
+    cursor: pointer;
+}
+
+.unstyled-btn:hover {
+    text-decoration: underline; /* Optional: adds underline on hover */
+}

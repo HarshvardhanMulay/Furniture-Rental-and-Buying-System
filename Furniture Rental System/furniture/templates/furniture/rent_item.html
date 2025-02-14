@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent {{ item.title }}</title>
+</head>
+<body>
+    <center>
+    <h1>Rent {{ item.title }}</h1>
+    <p>Rental Price: ${{ item.rental_price }}/ per Month</p>
+    <form method="POST" action="{% url 'checkout' item.id %}">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br><p></p>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br><p></p>
+        <button type="submit">Confirm Rental</button><p></p>
+    </form>
+    <a href="{% url 'item_detail' item.id %}">Back to Item</a>
+    </center>
+</body>
+</html>

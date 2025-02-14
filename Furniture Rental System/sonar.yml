@@ -1,0 +1,19 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      python: 3.9
+      java: corretto17
+    commands:
+      - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
+      - unzip sonar-scanner-cli-5.0.1.3006-linux.zip
+      - export PATH=$PATH:./sonar-scanner-5.0.1.3006-linux/bin/
+  pre_build:
+    commands:
+      - sonar-scanner -Dsonar.organization=harshvardhan99 -Dsonar.projectKey=harshvardhan99_harshvardhan -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.token=ca10aea381a6854255e712fd2211074980698d76 -Dsonar.python.version=3.11 -Dsonar.exclusions=**/migrations/**,**/*.pyc,**/venv/**,**/__pycache__/**
+  build:
+    commands:
+      - echo Building Django Project
+cache:
+  paths:
+    - '.sonar/**/*'

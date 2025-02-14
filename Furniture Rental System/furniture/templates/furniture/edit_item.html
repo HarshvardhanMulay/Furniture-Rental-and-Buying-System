@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Item</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'furniture/styles.css' %}">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Edit Item</a>
+            <div class="ms-auto">
+                <a href="{% url 'seller_dashboard' %}" class="btn btn-outline-primary">Back to Dashboard</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mt-5">
+        <h2>Edit Item: {{ item.title }}</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-success">Save Changes</button>
+            <a href="{% url 'seller_dashboard' %}" class="unstyled-btn">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>

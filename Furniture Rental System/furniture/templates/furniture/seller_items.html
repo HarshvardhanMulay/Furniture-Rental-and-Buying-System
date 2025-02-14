@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <h1>Your Listings</h1>
+<ul>
+    {% for item in items %}
+        <li>
+            <h3>{{ item.title }}</h3>
+            <p>Description: {{ item.description }}</p>
+            <p>Price: ${{ item.price }}</p>
+            <p>Quantity: {{ item.quantity }}</p>
+            {% if not item.is_available %}
+                <p class="text-danger">Item Not Available</p>
+            {% endif %}
+            <a href="{% url 'item_detail' item.id %}">View Details</a>
+        </li>
+    {% endfor %}
+</ul>
+</head>
+<body>
+
+</body>
+</html>
